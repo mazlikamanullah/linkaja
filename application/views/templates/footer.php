@@ -1,5 +1,5 @@
 <footer class="main-footer">
-    <strong>Copyright &copy; <?= date('Y') ?> <a href="http://adminlte.io">OCC Data Linkaja</a>.</strong>
+    <strong>Copyright &copy; <?= date('Y') ?> <a href="https://cdn-brilio-net.akamaized.net/news/2020/08/07/189715/1284389-1000xauto-kata-motivasi-lucu.jpg"target='_blank'>OCC Data Linkaja</a>.</strong>
     All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
         <b>Version</b> 3.0.4
@@ -50,9 +50,18 @@
 <script src="<?= base_url('assets/vendor/') ?>dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?= base_url('assets/vendor/') ?>dist/js/demo.js"></script>
-<!-- sweetalert2 -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.js"></script>
+<script>
+  $(function () {
+    // Summernote
+    $('#summernote').summernote()
 
+    // CodeMirror
+    CodeMirror.fromTextArea(document.getElementById("codeMirrorDemo"), {
+      mode: "htmlmixed",
+      theme: "monokai"
+    });
+  })
+</script>
 </body>
 
 </html>

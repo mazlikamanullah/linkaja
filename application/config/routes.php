@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
-
+ 
 /* 
 | -------------------------------------------------------------------------
 | URI ROUTING
@@ -59,20 +59,25 @@ $route['admin/home'] = 'home';
 //task
 $route['admin/task'] = 'task';
 $route['admin/task/add'] = 'task/add';
+$route['admin/task/edit/(:any)'] = 'task/edit/$1';
 
 //task
 $route['admin/monitoring'] = 'monitoring';
 
 // user monitoring
 $route['user/monitoring'] = 'user/monitoring';
+$route['user/history'] = 'user/history';
+$route['user/history/detail/(:any)'] = 'user/detail/$1';
 
 //admin case
 $route['admin/cases'] = 'cases';
+$route['admin/cases/edit/(:any)'] = 'cases/edit/$1';
 $route['admin/cases/delete/(:any)'] = 'cases/delete/$1';
 
 //admin sub case
 $route['admin/sub_cases'] = 'sub_cases';
 $route['admin/sub_cases/delete/(:any)'] = 'sub_cases/delete/$1';
+$route['admin/sub_cases/edit/(:any)'] = 'sub_cases/edit/$1';
 
 //admin job
 $route['admin/job'] = 'job';

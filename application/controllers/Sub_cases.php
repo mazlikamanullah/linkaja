@@ -29,13 +29,62 @@ class Sub_cases extends CI_Controller
         if ($this->form_validation->run() == FALSE) {
             $this->load->view('templates/header', $data);
             $this->load->view('templates/sidebar', $data);
-            $this->load->view('admin1/sub_cases/index', $data);
+            $this->load->view('admin/sub_cases/index', $data);
             $this->load->view('templates/footer');
         } else {
             $data_to_db = [
                 'name' => $this->input->post('sub_case_name'),
             ];
             $this->db->insert('sub_case', $data_to_db);
+            $this->session->set_flashdata('add-success', 'Success');
+            redirect('admin/sub_cases');
+        }
+    }
+
+    public function add()
+    {
+        $data['title'] = "Add Sub Case";
+
+        $this->form_validation->set_rules('sub_case_name', 'Sub_case_name', 'required');
+
+        if ($this->form_validation->run() == FALSE) {
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('admin/sub_cases/index', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $data_to_db = [
+                'name' => $this->input->post('sub_case_name'),
+            ];
+            $this->db->insert('sub_case', $data_to_db);
+            $this->session->set_flashdata('add-success', 'Success');
+            redirect('admin/sub_cases');
+        }
+
+    }
+
+    public function edit($id)
+    {
+        $data['title'] = "Edit Sub Case";
+
+        $this->form_validation->set_rules('sub_case', 'Sub Case', 'required');
+
+        $this->db->select('*');
+        $this->db->from('sub_case');
+        $this->db->where('id', $id);
+        $data['sub_case'] = $this->db->get()->row_array();
+
+        if ($this->form_validation->run() == FALSE) {
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('admin/sub_cases/edit', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $name = $this->input->post('sub_case');
+
+            $this->db->set('name', $name);
+            $this->db->where('id', $id);
+            $this->db->update('sub_case');
             $this->session->set_flashdata('add-success', 'Success');
             redirect('admin/sub_cases');
         }

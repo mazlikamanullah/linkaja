@@ -29,13 +29,40 @@ class Cases extends CI_Controller
         if ($this->form_validation->run() == FALSE) {
             $this->load->view('templates/header', $data);
             $this->load->view('templates/sidebar', $data);
-            $this->load->view('admin1/cases/index', $data);
+            $this->load->view('admin/cases/index', $data);
             $this->load->view('templates/footer');
         } else {
             $data_to_db = [
                 'name' => $this->input->post('case_name'),
             ];
             $this->db->insert('case', $data_to_db);
+            $this->session->set_flashdata('add-success', 'Success');
+            redirect('admin/cases');
+        }
+    }
+
+    public function edit($id)
+    {
+        $data['title'] = "Edit Case";
+
+        $this->form_validation->set_rules('case', 'Case', 'required');
+
+        $this->db->select('*');
+        $this->db->from('case');
+        $this->db->where('id', $id);
+        $data['case'] = $this->db->get()->row_array();
+
+        if ($this->form_validation->run() == FALSE) {
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('admin/cases/edit', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $name = $this->input->post('case');
+
+            $this->db->set('name', $name);
+            $this->db->where('id', $id);
+            $this->db->update('case');
             $this->session->set_flashdata('add-success', 'Success');
             redirect('admin/cases');
         }
