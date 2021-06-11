@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
- 
+
 /* 
 | -------------------------------------------------------------------------
 | URI ROUTING
@@ -82,3 +82,4 @@ $route['admin/sub_cases/edit/(:any)'] = 'sub_cases/edit/$1';
 //admin job
 $route['admin/job'] = 'job';
 $route['admin/job/delete/(:any)'] = 'job/delete/$1';
+$route['admin/job/edit/(:any)'] = 'job/edit/$1';
