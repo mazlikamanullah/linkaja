@@ -24,18 +24,22 @@
                             <tbody>
                                 <?php
                                 $no = 1;
-                                foreach ($job as $scs) :
+                                foreach ($jobs as $job) :
+
+                                    $task = $this->db->get_where('task', ['id_task' => $job['task_id']])->row_array();
+                                    $case = $this->db->get_where('case', ['id' => $job['case_id']])->row_array();
+                                    $sub_case = $this->db->get_where('sub_case', ['id' => $job['sub_case_id']])->row_array();
                                 ?>
                                     <tr>
                                         <td><?= $no++; ?></td>
-                                        <td><?= $scs['task_id']; ?></td>
-                                        <td><?= $scs['case_id']; ?></td>
-                                        <td><?= $scs['sub_case_id']; ?></td>
+                                        <td><?= $task['task_name']; ?></td>
+                                        <td><?= $case['name']; ?></td>
+                                        <td><?= $sub_case['name']; ?></td>
                                         <td class="text-center">
                                             <a type="button" class="btn btn-info btn-sm">
                                                 <i class="fas fa-edit"></i>
                                             </a>
-                                            <a href="<?= base_url('admin/job/delete/' . $scs['id']); ?>" type="button" class="btn btn-danger btn-sm">
+                                            <a href="<?= base_url('admin/job/delete/' . $job['id']); ?>" type="button" class="btn btn-danger btn-sm">
                                                 <i class="fas fa-trash"></i>
                                         </td>
                                     </tr>
