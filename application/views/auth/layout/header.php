@@ -7,9 +7,9 @@
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="<?= base_url('assets/vendor/'); ?>plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="http://occ-monitoring.linkaja.com/assets/vendor/plugins/fontawesome-free/css/all.min.css">
   <!-- icheck bootstrap -->
-  <link rel="stylesheet" href="<?= base_url('assets/vendor/'); ?>plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <link rel="stylesheet" href="http://occ-monitoring.linkaja.com/assets/vendor/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="<?= base_url('assets/vendor/'); ?>dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="http://occ-monitoring.linkaja.com/assets/vendor/dist/css/adminlte.min.css">
 </head>
