@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
-
+ 
 /* 
 | -------------------------------------------------------------------------
 | URI ROUTING
@@ -56,13 +56,39 @@ $route['translate_uri_dashes'] = FALSE;
 //admin
 $route['admin/home'] = 'home';
 
+//admin
+$route['admin/user'] = 'admin/user';
+$route['admin/user/add'] = 'admin/userAdd';
+$route['admin/user/edit/(:any)'] = 'admin/userEdit/$1';
+$route['admin/user/delete/(:any)'] = 'admin/userDelete/$1';
+
 //task
 $route['admin/task'] = 'task';
 $route['admin/task/add'] = 'task/add';
 $route['admin/task/edit/(:any)'] = 'task/edit/$1';
+$route['admin/task/delete/(:any)'] = 'task/delete/$1';
+
+
+//admin job
+$route['admin/job'] = 'job';
+$route['admin/job/delete/(:any)'] = 'job/delete/$1';
+$route['admin/job/edit/(:any)'] = 'job/edit/$1';
+
+//admin tools
+$route['admin/tools'] = 'tools';
+$route['admin/tools/delete/(:any)'] = 'tools/delete/$1';
+$route['admin/tools/edit/(:any)'] = 'tools/edit/$1';
+$route['admin/tools/add/(:any)'] = 'tools/add/$1';
+$route['admin/tools/uptoken/(:any)'] = 'tools/uptoken/$1';
+
+//user tools
+$route['user/tools'] = 'tools';
+
 
 //task
 $route['admin/monitoring'] = 'monitoring';
+$route['admin/monitoring/detail/(:any)'] = 'monitoring/detail/$1';
+$route['admin/task/delete/(:any)'] = 'task/delete/$1';
 
 // user monitoring
 $route['user/monitoring'] = 'user/monitoring';
@@ -82,4 +108,3 @@ $route['admin/sub_cases/edit/(:any)'] = 'sub_cases/edit/$1';
 //admin job
 $route['admin/job'] = 'job';
 $route['admin/job/delete/(:any)'] = 'job/delete/$1';
-$route['admin/job/edit/(:any)'] = 'job/edit/$1';
